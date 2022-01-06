@@ -5,7 +5,7 @@ from eflomal import read_text, write_text, align
 import sys, argparse, random, os, io
 from tempfile import NamedTemporaryFile
 
-def main():
+def main(raw_args=None):
     parser = argparse.ArgumentParser(
         description='eflomal: efficient low-memory aligner')
     parser.add_argument(
@@ -86,7 +86,7 @@ def main():
         '-p', '--priors', dest='priors_filename', type=str, metavar='filename',
         help='File to read priors from')
  
-    args = parser.parse_args()
+    args = parser.parse_args(raw_args)
 
     if not (args.joint_filename or (args.source_filename and
         args.target_filename)):
